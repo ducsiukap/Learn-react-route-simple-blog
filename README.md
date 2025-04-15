@@ -1,5 +1,5 @@
 ### `npn install`
-### `npn install react=hook-form`
+### `npn install react-hook-form`
 
 
 # Getting Started with Create React App
