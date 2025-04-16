@@ -34,7 +34,38 @@ const blog6 = {
   content: "Là bắt đầu lo cho cái deadline tiếp theo.",
 };
 
-const blogs = [blog1, blog2, blog3, blog4, blog5, blog6];
+const blog7 = {
+  _id: "blog007",
+  title: "Tôi và chiếc bàn làm việc",
+  content: "Chiếc bàn làm việc này đã cùng tôi qua bao mùa deadline, bao đêm thức trắng và cả những lần… ngủ gục luôn tại trận. Nó đầy vết cà phê, giấy note dán tùm lum nhưng vẫn là nơi khơi nguồn cho những ý tưởng điên rồ nhất."
+};
+
+const blog8 = {
+  _id: "blog008",
+  title: "Nỗi buồn mang tên cuối tháng",
+  content: "Ví tiền trống rỗng, thẻ ngân hàng thì nằm im. Mình ngồi tính toán từng bữa ăn, cân nhắc từng gói mì. Nhưng lạ là, những ngày cuối tháng lại khiến mình trân trọng từng niềm vui nhỏ, như một ly trà đá hay một buổi chiều mát trời."
+};
+
+const blog9 = {
+  _id: "blog009",
+  title: "Có một hôm tôi dậy sớm",
+  content: "Mặt trời vừa ló, phố còn yên. Mình pha cà phê, mở nhạc nhẹ và ngồi viết mấy dòng blog này. Dậy sớm không dễ, nhưng cảm giác làm chủ được thời gian thật sự rất 'xịn'. Tiếc là sáng hôm sau lại ngủ quên."
+};
+
+const blog10 = {
+  _id: "blog010",
+  title: "Tình yêu và... bug",
+  content: "Mình từng nghĩ không có gì khó hiểu hơn tình yêu, cho đến khi gặp một con bug không tái hiện được. Nó chỉ xuất hiện khi demo cho khách hàng. Còn bình thường thì chạy mượt như crush nhìn thấy người yêu mình…"
+};
+
+const blog11 = {
+  _id: "blog011",
+  title: "Khi deadline trở thành động lực sống",
+  content: "Ban đầu là hoảng, sau là lo, rồi chuyển sang… chấp nhận. Có những hôm mình chỉ thực sự sống khi còn 3 tiếng nộp bài. Và kỳ lạ thay, lúc ấy mình lại làm việc hiệu quả hơn cả một tuần ngồi suy nghĩ vô định."
+};
+
+
+const blogs = [blog1, blog2, blog3, blog4, blog5, blog6, blog7, blog8, blog9, blog10, blog11];
 
 function useBlog() {
   return blogs;

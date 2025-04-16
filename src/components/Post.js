@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext, Navigate } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { blogModel } from "../models/Blog";
-import { AuthContext } from '../context/Authentication';
 
 
 function Post() {
@@ -14,10 +13,6 @@ function Post() {
         setBlog(res);
         setLoading(false);
     }, [postId]);
-
-    const {loggedIn} = useContext(AuthContext);
-    if (!loggedIn)
-        return (<Navigate to="/login" replace />)
 
     return (
         <div className="box">

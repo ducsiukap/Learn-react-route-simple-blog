@@ -5,7 +5,7 @@ import { AuthContext } from '../context/Authentication';
 import "../style.css";
 
 function Posts() {
-  const { loggedIn } = useContext(AuthContext);
+  const { loggedIn, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const path = useLocation().pathname;
   const [prevLocation, setPrevLocation] = useState("/");
@@ -14,6 +14,8 @@ function Posts() {
     setPrevLocation(prev ? prev : "/");
     console.log(prev);
   }, [path]);
+  
+  if (loading) return null;
   
   if (!loggedIn)
     return (<Navigate to="/login" replace />)

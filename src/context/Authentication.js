@@ -5,12 +5,15 @@ const AuthContext = createContext(null);
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const saved = localStorage.getItem('user');
     if (saved) {
       setUser(JSON.parse(saved));
     }
+    setLoading(false);
   }, [])
 
   const login = ({usrn, pwrd}) => {
@@ -32,7 +35,7 @@ function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loggedIn, login, logout }}>
+    <AuthContext.Provider value={{ user, loggedIn, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

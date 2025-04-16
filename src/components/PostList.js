@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
-import { useNavigate, Outlet, Navigate } from "react-router-dom";
-import { AuthContext } from '../context/Authentication';
+import React from "react";
+import { useNavigate, Outlet} from "react-router-dom";
 
 import { useBlog } from "../models/Blog.js";
 
 function PostList() {
-  const { loggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const blog_list = useBlog();
-  if (!loggedIn)
-    return (<Navigate to="/login" replace />)
   
   return (
     <div>
