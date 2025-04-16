@@ -10,6 +10,7 @@ function PostList() {
   const blog_list = useBlog();
   if (!loggedIn)
     return (<Navigate to="/login" replace />)
+  
   return (
     <div>
       {blog_list.map((item) => (
