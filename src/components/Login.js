@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { AuthContext } from "../context/Authentication";
@@ -12,14 +12,13 @@ function Login() {
     formState: { errors }
   } = useForm();
 
-  const { login, logout } = useContext(AuthContext);
-
-  useEffect(() => { logout() }, []);
-
+  // const auth = useContext(AuthContext);
+  const { login, loggedIn } = useContext(AuthContext);
   const [success, setSuccess] = useState(true);
 
+  if (loggedIn) return <Navigate to={`/`} replace />;
+
   const submit = (data) => {
-    // console.log(data);
 
     const ok = login(data);
     console.log(`login: ${ok}`);
@@ -28,7 +27,6 @@ function Login() {
       navigate('/', { replace: true });
     } else {
       setSuccess(false);
-      // alert('login faile')
     }
   };
 

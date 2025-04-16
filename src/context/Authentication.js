@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { findUser } from "../models/Users";
 
 const AuthContext = createContext(null);
@@ -6,11 +6,19 @@ const AuthContext = createContext(null);
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const saved = localStorage.getItem('user');
+    if (saved) {
+      setUser(JSON.parse(saved));
+    }
+  }, [])
+
   const login = ({usrn, pwrd}) => {
     const u = findUser({ usrn, pwrd });
-    console.log(u);
+    // console.log(u);
     if (u) {
       setUser(u);
+      localStorage.setItem('user', JSON.stringify(u));
       return true; 
     }
     return false;
@@ -20,6 +28,7 @@ function AuthProvider({ children }) {
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('user');
   };
 
   return (

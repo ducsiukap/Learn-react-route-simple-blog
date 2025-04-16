@@ -6,8 +6,14 @@ import "../style.css";
 
 function NavBar() {
 
-  const { loggedIn } = useContext(AuthContext);
-  console.log(loggedIn)
+  const { user, loggedIn, logout } = useContext(AuthContext);
+  // console.log(loggedIn)
+
+  const handleLogout = () => {
+    logout();
+  }
+
+  console.log(loggedIn ? 'logged in, user: ' + user.name : 'not loggedin',' --- from nav-bar');
 
   return (
     <div className="nav-bar">
@@ -21,7 +27,7 @@ function NavBar() {
       <Link className="btn-link" to={`/about`}>
         About
       </Link>
-      <Link className="btn-link" to={`/login`}>
+      <Link className="btn-link" to={loggedIn ? `/` : `/login`} onClick={loggedIn&&handleLogout}>
         {loggedIn ? "Logout" : "Login"}
       </Link>
     </div>

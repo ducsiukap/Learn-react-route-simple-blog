@@ -7,7 +7,7 @@ import { AuthContext } from '../context/Authentication';
 
 function Post() {
     const { postId } = useParams();
-    const [blog, setBlog] = useState(null);
+    const [blog, setBlog] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const res = blogModel(postId);
