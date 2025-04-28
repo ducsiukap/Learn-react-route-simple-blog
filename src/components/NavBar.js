@@ -1,29 +1,30 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from '../context/Authentication';
 import "../style.css";
 
 
-function NavBar() {
-
-  const { user, loggedIn, logout } = useContext(AuthContext);
+function NavBar({loggedIn, onLogout}) {
   // console.log(loggedIn)
 
+  console.log('login status: ', loggedIn,' --- from nav-bar');
+  
   const handleLogout = () => {
-    logout();
+    onLogout(null);
   }
-
-  console.log(loggedIn ? 'logged in, user: ' + user.name : 'not loggedin',' --- from nav-bar');
 
   return (
     <div className="nav-bar">
       <span id="nav-logo">Blog Web</span>
+      <Link className="btn-link" to={`/create`}>
+        Create
+      </Link>
       <Link className="btn-link" to={`/`}>
         Home
       </Link>
       <Link className="btn-link" to={`/posts`}>
         Posts
       </Link>
+  
       <Link className="btn-link" to={`/about`}>
         About
       </Link>

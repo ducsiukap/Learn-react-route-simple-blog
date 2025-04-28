@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Outlet, useNavigate, useLocation, Navigate } from "react-router-dom";
-import { AuthContext } from '../context/Authentication';
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate, useLocation} from "react-router-dom";
 
 import "../style.css";
 
 function Posts() {
-  const { loggedIn, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const path = useLocation().pathname;
   const [prevLocation, setPrevLocation] = useState("/");
@@ -14,11 +12,6 @@ function Posts() {
     setPrevLocation(prev ? prev : "/");
     console.log(prev);
   }, [path]);
-  
-  if (loading) return null;
-  
-  if (!loggedIn)
-    return (<Navigate to="/login" replace />)
 
   return (
     <div>

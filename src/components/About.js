@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
 
-import {AuthContext} from '../context/Authentication';
-
-export default function About() {
-    const {user, loggedIn} = useContext(AuthContext);
+export default function About({loggedIn, user}) {
 
     return (
         <div className="box">
