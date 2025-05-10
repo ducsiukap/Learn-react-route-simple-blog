@@ -13,7 +13,8 @@ function NewPost() {
         // console.log(data);
         const blog = {
             'title': data.title,
-            'content': data.content
+            'content': data.content,
+            'type': data.type
         }
 
         const fetchOptions = {
@@ -58,9 +59,17 @@ function NewPost() {
                 {errors.content && <label className="explain error">Vui lòng nhập nội dung</label>}
                 <br />
             </div>
+            <div>
+                <label htmlFor="type">Type</label>
+                <select id="type" {...register('type', {required: "phải chọn"})}>
+                    <option value="">-- select --</option>
+                    <option value={'sport'}>sport</option>
+                    <option value={'tech'}>tech</option>
+                </select>
+                {errors.type && <label className="explain error">{errors.type.message}</label>}
+            </div>
             <button type="submit">Đăng</button>
         </form>
-
     )
 }
 

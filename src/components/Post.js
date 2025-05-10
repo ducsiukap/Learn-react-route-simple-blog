@@ -41,6 +41,7 @@ function Post() {
             <>
               <h3 className="title">{blog.title}</h3>
               <p>{blog.content}</p>
+              <p className="explain">{blog.type ? blog.type : 'unknown'}</p>
             </>
           )}
         </div>
